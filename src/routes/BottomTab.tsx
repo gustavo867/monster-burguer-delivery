@@ -7,7 +7,7 @@ import Page from "../screens/Page";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-function StudyTabs() {
+function BottomTab() {
   return (
     <Navigator
       tabBarOptions={{
@@ -72,4 +72,4 @@ function StudyTabs() {
   );
 }
 
-export default StudyTabs;
+export default BottomTab;

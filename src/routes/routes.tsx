@@ -1,8 +1,9 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-import { BottomTabBar } from "@react-navigation/bottom-tabs";
+import Login from '../screens/Login';
+import BottomTab from './BottomTab';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -10,7 +11,8 @@ function Routes() {
   return (
     <NavigationContainer>
       <Navigator headerMode="none">
-        <Screen name="BottomTabBar" component={BottomTabBar} />
+        <Screen name="Login" component={Login} />
+        <Screen name="Navigation" component={BottomTab} />
       </Navigator>
     </NavigationContainer>
   );
