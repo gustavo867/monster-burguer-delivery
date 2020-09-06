@@ -1,16 +1,27 @@
 import React from 'react';
-import { View, TextInput, Dimensions, StyleSheet, Text } from 'react-native';
+import {
+  View,
+  TextInput,
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInputFocusEventData,
+  NativeSyntheticEvent,
+  TextInputSubmitEditingEventData,
+} from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
 interface Props {
   label: string;
   defaultValue?: string;
-  onChangeText?: any;
+  onChangeText?: ((text: string) => void) | undefined;
   secure?: boolean;
-  onFocus?: any;
-  submitEnding?: any;
-  value?: any;
+  onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
+  submitEnding?:
+    | ((e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void)
+    | undefined;
+  value?: string | undefined;
 }
 
 const Input: React.FC<Props> = ({
