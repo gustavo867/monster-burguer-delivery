@@ -15,13 +15,15 @@ const { width, height } = Dimensions.get('window');
 interface Props {
   label: string;
   defaultValue?: string;
-  onChangeText?: ((text: string) => void) | undefined;
   secure?: boolean;
+  onChangeText?: ((text: string) => void) | undefined;
   onFocus?: (e: NativeSyntheticEvent<TextInputFocusEventData>) => void;
   submitEnding?:
     | ((e: NativeSyntheticEvent<TextInputSubmitEditingEventData>) => void)
     | undefined;
   value?: string | undefined;
+  placeholder?: string | undefined;
+  placeholderTextColor?: string | undefined;
 }
 
 const Input: React.FC<Props> = ({
@@ -32,6 +34,8 @@ const Input: React.FC<Props> = ({
   onFocus,
   submitEnding,
   value,
+  placeholder,
+  placeholderTextColor,
 }: Props) => {
   return (
     <View style={styles.marginTop}>
@@ -47,6 +51,8 @@ const Input: React.FC<Props> = ({
         onSubmitEditing={submitEnding}
         value={value}
         onChangeText={onChangeText}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
       />
     </View>
   );
@@ -61,6 +67,7 @@ const styles = StyleSheet.create({
     borderColor: '#624D0E',
     borderWidth: 2,
     height: height * 0.07,
+    paddingLeft: 20,
   },
   label: {
     fontFamily: 'Roboto_400Regular',

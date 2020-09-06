@@ -21,7 +21,6 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
 
 const Login: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [heightValue] = useState(new Animated.Value(0));
@@ -45,7 +44,7 @@ const Login: React.FC = () => {
   }
 
   function handleNavigate() {
-    navigate('Navigation', { email, password });
+    email || (password !== undefined && navigate('Navigation'));
   }
 
   function handleNavigateToForgotPassword() {
