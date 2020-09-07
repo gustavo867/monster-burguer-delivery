@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 import styles from './styles';
 import burguerImage from '../../assets/images/burguer.png';
@@ -21,10 +22,11 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
 
 const Login: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [heightValue] = useState(new Animated.Value(0));
-  const [widthValue] = useState(new Animated.Value(100));
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [heightValue] = useState<Animated.Value>(new Animated.Value(0));
+  const [widthValue] = useState<Animated.Value>(new Animated.Value(100));
+  const [visible, setVisible] = useState(false);
 
   const { navigate } = useNavigation();
 
@@ -41,10 +43,11 @@ const Login: React.FC = () => {
         useNativeDriver: false,
       }),
     ]).start();
+    setVisible((prevState) => !prevState);
   }
 
   function handleNavigate() {
-    email || (password !== undefined && navigate('Navigation'));
+    email || (password !== null && navigate('Navigation'));
   }
 
   function handleNavigateToForgotPassword() {
@@ -89,7 +92,19 @@ const Login: React.FC = () => {
         <Image source={burguerImage} />
         <Title />
       </Animated.View>
-      <Text style={styles.welcomeText}>Welcome Back</Text>
+      <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+        <Text style={styles.welcomeText}>Welcome Back</Text>
+        <TouchableOpacity
+          style={{ marginRight: 20 }}
+          onPress={visible ? () => Animate() : () => handleVisible()}
+        >
+          <Ionicons
+            name={visible ? 'ios-arrow-down' : 'ios-arrow-up'}
+            size={26}
+            color="black"
+          />
+        </TouchableOpacity>
+      </View>
       <Text style={styles.textBuy}>came to buy a monster burger?</Text>
       <KeyboardAvoidingView style={styles.center}>
         <Input
