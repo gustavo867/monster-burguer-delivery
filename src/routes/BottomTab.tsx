@@ -1,9 +1,9 @@
-import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
-import Home from "../screens/Home";
-import Page from "../screens/Page";
+import OrderManually from '../screens/OrderManually';
+import Page from '../screens/Page';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -17,9 +17,9 @@ function BottomTab() {
           height: 64,
         },
         tabStyle: {
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
         },
         iconStyle: {
           flex: 0,
@@ -30,23 +30,22 @@ function BottomTab() {
           fontSize: 13,
           marginLeft: 16,
         },
-        inactiveBackgroundColor: "#fafafc",
-        activeBackgroundColor: "#ebebf5",
-        inactiveTintColor: "#c1bccc",
-        activeTintColor: "#32264d",
+        inactiveBackgroundColor: '#fafafc',
+        activeBackgroundColor: '#ebebf5',
+        inactiveTintColor: '#c1bccc',
+        activeTintColor: '#32264d',
       }}
     >
       <Screen
-        name="Home"
-        component={Home}
+        name="OrderManually"
+        component={OrderManually}
         options={{
-          tabBarLabel: "Home",
           tabBarIcon: ({ color, size, focused }) => {
             return (
               <Ionicons
                 name="md-home"
                 size={size}
-                color={focused ? "#8257E5" : color}
+                color={focused ? '#8257E5' : color}
               />
             );
           },
@@ -56,13 +55,12 @@ function BottomTab() {
         name="Page"
         component={Page}
         options={{
-          tabBarLabel: "Page",
           tabBarIcon: ({ color, size, focused }) => {
             return (
               <Ionicons
                 name="ios-beaker"
                 size={size}
-                color={focused ? "#8257E5" : color}
+                color={focused ? '#8257E5' : color}
               />
             );
           },
