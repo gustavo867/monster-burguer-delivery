@@ -47,7 +47,7 @@ const Login: React.FC = () => {
   }
 
   function handleNavigate() {
-    email || (password !== null && navigate('Navigation'));
+    navigate('Navigation');
   }
 
   function handleNavigateToForgotPassword() {

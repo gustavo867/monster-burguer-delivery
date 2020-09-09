@@ -36,6 +36,14 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 14.0,
+    elevation: 20,
   },
   text: {
     fontFamily: 'Roboto_700Bold',

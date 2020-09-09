@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTab from './BottomTab';
 import AuthStack from './AuthStack';
+import RegisterOrder from '../screens/RegisterOrder';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -13,6 +14,7 @@ function Routes() {
       <Navigator headerMode="none">
         <Screen name="Authentication" component={AuthStack} />
         <Screen name="Navigation" component={BottomTab} />
+        <Screen name="Register" component={RegisterOrder} />
       </Navigator>
     </NavigationContainer>
   );
