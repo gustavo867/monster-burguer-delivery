@@ -6,10 +6,12 @@ import {
   KeyboardAvoidingView,
   Animated,
   Dimensions,
+  LogBox,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import styles from './styles';
 import burguerImage from '../../assets/images/burguer.png';
@@ -17,7 +19,6 @@ import burguerImage from '../../assets/images/burguer.png';
 import Title from '../../components/Title/Title';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get('window');
 
@@ -43,7 +44,7 @@ const Login: React.FC = () => {
         useNativeDriver: false,
       }),
     ]).start();
-    setVisible((prevState) => !prevState);
+    setVisible(true);
   }
 
   function handleNavigate() {
@@ -71,9 +72,11 @@ const Login: React.FC = () => {
         useNativeDriver: false,
       }),
     ]).start();
+    setVisible(false);
   }
 
   useEffect(() => {
+    LogBox.ignoreAllLogs();
     Animate();
   }, []);
 
@@ -113,6 +116,7 @@ const Login: React.FC = () => {
           submitEnding={() => Animate()}
           value={email}
           onChangeText={setEmail}
+          onBlur={() => Animate()}
         />
         <Input
           label="Password"
@@ -121,6 +125,7 @@ const Login: React.FC = () => {
           submitEnding={() => Animate()}
           value={password}
           onChangeText={setPassword}
+          onBlur={() => Animate()}
         />
       </KeyboardAvoidingView>
       <TouchableOpacity
@@ -130,7 +135,7 @@ const Login: React.FC = () => {
         <Text style={styles.small}>Forgot Password?</Text>
       </TouchableOpacity>
       <View style={[styles.center, styles.button]}>
-        <Button onPress={() => handleNavigate()} text="Sign In" />
+        <Button onPress={() => handleNavigate()} text="Sign In" shadow={true} />
       </View>
       <TouchableOpacity
         onPress={() => handleNavigateToRegister()}

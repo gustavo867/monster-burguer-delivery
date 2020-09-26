@@ -24,6 +24,9 @@ interface Props {
   value?: string | undefined;
   placeholder?: string | undefined;
   placeholderTextColor?: string | undefined;
+  onBlur?:
+    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+    | undefined;
 }
 
 const Input: React.FC<Props> = ({
@@ -36,6 +39,7 @@ const Input: React.FC<Props> = ({
   value,
   placeholder,
   placeholderTextColor,
+  onBlur,
 }: Props) => {
   return (
     <View style={styles.marginTop}>
@@ -53,6 +57,7 @@ const Input: React.FC<Props> = ({
         onChangeText={onChangeText}
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
+        onBlur={onBlur}
       />
     </View>
   );

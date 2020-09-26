@@ -52,7 +52,7 @@ function BottomTab() {
                 color="#FFF"
               />
             ) : (
-              <Image source={profile} />
+              <Image resizeMode="contain" source={profile} />
             );
           },
         }}
@@ -84,7 +84,7 @@ function BottomTab() {
                 color="#FFF"
               />
             ) : (
-              <Image source={square} />
+              <Image resizeMode="contain" source={square} />
             );
           },
         }}

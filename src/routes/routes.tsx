@@ -14,7 +14,7 @@ function Routes() {
       <Navigator headerMode="none">
         <Screen name="Authentication" component={AuthStack} />
         <Screen name="Navigation" component={BottomTab} />
-        <Screen name="Register" component={RegisterOrder} />
+        <Screen name="RegisterOrder" component={RegisterOrder} />
       </Navigator>
     </NavigationContainer>
   );

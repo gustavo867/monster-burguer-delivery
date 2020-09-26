@@ -111,7 +111,11 @@ const Register: React.FC = () => {
         </View>
         {isVisible && <Text style={styles.red}>Password is not the same</Text>}
         <View style={[styles.center, styles.buttonContainer]}>
-          <Button onPress={() => handleNavigate()} text="Forget Password" />
+          <Button
+            onPress={() => handleNavigate()}
+            text="Forget Password"
+            shadow={true}
+          />
         </View>
       </SafeAreaView>
     </View>
