@@ -29,7 +29,7 @@ interface RouteProps {
 
 const RegisterOrder: React.FC = () => {
   const route = useRoute();
-  const { goBack } = useNavigation();
+  const { goBack, navigate } = useNavigation();
   const [prices, setPrices] = useState<any>();
 
   const { cart } = route.params as RouteProps;
@@ -37,6 +37,10 @@ const RegisterOrder: React.FC = () => {
   const navigateBack = useCallback(() => {
     goBack();
   }, [goBack]);
+
+  const handleNavigateToHistoric = useCallback(() => {
+    navigate('Historic', { cart });
+  }, [navigate]);
 
   useEffect(() => {
     LogBox.ignoreAllLogs();
@@ -117,7 +121,11 @@ const RegisterOrder: React.FC = () => {
           <Text style={styles.time}>{handleTime(cart.length)}</Text>
         </View>
 
-        <Button text="Finish" shadow={true} onPress={navigateBack} />
+        <Button
+          text="Finish"
+          shadow={true}
+          onPress={handleNavigateToHistoric}
+        />
       </View>
     </SafeAreaView>
   );
