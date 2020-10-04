@@ -38,9 +38,12 @@ const RegisterOrder: React.FC = () => {
     goBack();
   }, [goBack]);
 
-  const handleNavigateToHistoric = useCallback(() => {
-    navigate('Historic', { cart });
-  }, [navigate]);
+  const handleNavigateToHistoric = useCallback(
+    (cart: any) => {
+      navigate('Historic', { cart });
+    },
+    [navigate]
+  );
 
   useEffect(() => {
     LogBox.ignoreAllLogs();
@@ -124,7 +127,7 @@ const RegisterOrder: React.FC = () => {
         <Button
           text="Finish"
           shadow={true}
-          onPress={handleNavigateToHistoric}
+          onPress={() => handleNavigateToHistoric(cart)}
         />
       </View>
     </SafeAreaView>
